@@ -1,0 +1,30 @@
+{
+  "name": "@muluk/upload-sourcemap-plugin",
+  "version": "0.0.1",
+  "description": "Automatically upload the packaged sourcemap via the plugin",
+  "author": "Muluk",
+  "main": "dist/webpack-plugin.cjs.js",
+  "module": "dist/webpack-plugin.esm.js",
+  "types": "dist/webpack-plugin.d.ts",
+  "files": [
+    "dist/*",
+    "src/*"
+  ],
+  "keywords": [
+    "webpack-plugin",
+    "webpack"
+  ],
+  "scripts": {
+    "build": "npm run build webpack-plugin --prefix ../..",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": "https://github.com/Muluk-m/monorepo-tmp.git",
+  "license": "MIT",
+  "devDependencies": {
+    "form-data": "^4.0.0",
+    "@types/webpack": "^5.28.1"
+  },
+  "peerDependencies": {
+    "form-data": "^4.0.0"
+  }
+}

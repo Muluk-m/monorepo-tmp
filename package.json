@@ -1,0 +1,98 @@
+{
+  "name": "monorepo-tmp",
+  "private": true,
+  "packageManager": "pnpm@6.0.0",
+  "description": "monorepo template",
+  "repository": "https://github.com/Muluk-m/monorepo-tmp.git",
+  "files": [],
+  "scripts": {
+    "build": "node scripts/build",
+    "build-dts": "rollup -c rollup.dts.config.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "lint": "eslint -c .eslintrc.js --ext .ts,.vue,.js packages",
+    "lint-stylelint": "stylelint --config .stylelintrc.js packages/**/src/*.{less,css,scss}",
+    "fix": "eslint 'packages/**/src/*.{js,ts,vue}' --fix",
+    "commit": "git-cz",
+    "prepare": "npx husky install",
+    "prettier": "prettier -w 'packages/**/src/*.{js,ts,vue}'",
+    "release": "node ./scripts/release",
+    "clean": "rimraf packages/*/dist",
+    "lint-staged": "lint-staged",
+    "changeset": "changeset",
+    "test": "vitest -c ./vitest.config.ts",
+    "version": "changeset version",
+    "prepublishOnly": "bash prepublishOnly.sh",
+    "postpublish": "git checkout -- . && git clean -xf"
+  },
+  "keywords": [
+    "monorepo",
+    "cli",
+    "rollup"
+  ],
+  "lint-staged": {
+    "*.{ts,vue,js}": [
+      "eslint --config .eslintrc.js"
+    ],
+    "*.{css,less,scss}": [
+      "stylelint --config .stylelintrc.js"
+    ],
+    "*.{ts,vue,js,json,html,yml,css,less,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "pnpm": {
+    "overrides": {}
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@changesets/cli": "^2.24.4",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "chalk": "^4.1.0",
+    "commitizen": "^4.2.4",
+    "consola": "^2.15.3",
+    "conventional-changelog-cli": "^2.1.1",
+    "cssnano": "^5.0.13",
+    "cz-conventional-changelog": "^3.3.0",
+    "del": "^5.1.0",
+    "enquirer": "^2.3.2",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^7.13.0",
+    "execa": "^4.0.2",
+    "fs-extra": "^9.0.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^10.5.4",
+    "postcss": "^8.4.14",
+    "prettier": "^2.5.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.74.1",
+    "rollup-plugin-dts": "^4.0.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-svg": "^2.0.0",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "rollup-plugin-vue": "^5.1.9",
+    "sass": "^1.52.1",
+    "stylelint": "^13.12.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.21.0",
+    "typescript": "~4.8.x",
+    "vitest": "^0.31.1"
+  }
+}

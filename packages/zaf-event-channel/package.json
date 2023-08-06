@@ -1,0 +1,22 @@
+{
+  "name": "zaf-event-channel",
+  "version": "0.0.6",
+  "description": "An SDK for zendesk to communicate with iframe page",
+  "author": "Muluk",
+  "main": "dist/zaf-event-channel.cjs.js",
+  "module": "dist/zaf-event-channel.esm.js",
+  "types": "dist/zaf-event-channel.d.ts",
+  "files": [
+    "dist/*",
+    "src/*"
+  ],
+  "keywords": [
+    "zendesk"
+  ],
+  "scripts": {
+    "build": "npm run build zaf-event-channel --prefix ../..",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": "https://github.com/Muluk-m/monorepo-tmp.git",
+  "license": "MIT"
+}
